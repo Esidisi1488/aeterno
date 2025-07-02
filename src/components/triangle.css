@@ -1,0 +1,85 @@
+.triangle-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 2rem;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+  }
+  
+  .triangle-wrapper:hover {
+    transform: translateY(-10px) scale(1.05);
+  }
+  
+  .triangle-wrapper:hover .triangle {
+    filter: drop-shadow(0 0 10px gold);
+  }
+  
+  .triangle-wrapper .label {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: #ffd700;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+  }
+  
+  .triangle-wrapper:hover .label {
+    opacity: 1;
+  }
+  
+  /* Position text based on triangle type */
+  .triangle-wrapper.up .label { top: -3rem; left: 50%; transform: translateX(-50%); }
+  .triangle-wrapper.down .label { top: -3rem; left: 50%; transform: translateX(-50%); }
+  .triangle-wrapper.left .label { top: -3rem; left: 50%; transform: translateX(-50%); }
+  .triangle-wrapper.right .label { top: -3rem; left: 50%; transform: translateX(-50%); }
+  
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-bottom: 40px solid gold;
+    transition: filter 0.3s ease;
+  }
+  
+  /* Invert triangle direction based on type */
+  .triangle-wrapper.down .triangle {
+    transform: rotate(180deg);
+  }
+  .triangle-wrapper.left .triangle {
+    transform: rotate(180deg);
+  }
+  .triangle-wrapper.right .triangle {
+    transform: rotate(360deg);
+  }
+  
+  /* Animation to hide upward */
+  .slide-up {
+    animation: slideUp 0.5s forwards;
+  }
+  
+  @keyframes slideUp {
+    to {
+      transform: translateY(-200px);
+      opacity: 0;
+    }
+  }
+
+  /* Test */
+
+  /* .triangle-wrapper {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .triangle-wrapper.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .triangle-wrapper.hidden {
+    opacity: 0;
+    transform: translateY(-40px);
+    pointer-events: none;
+  } */
